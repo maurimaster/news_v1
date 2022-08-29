@@ -25,3 +25,109 @@ Migrating to CreateCategories (20220826025436)
   [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(575273010109588665)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2022-08-25 23:02:32 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/railties-7.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 26.3ms | Allocations: 708)
+Completed 200 OK in 117ms (Views: 55.7ms | ActiveRecord: 0.0ms | Allocations: 5504)
+
+
+Started GET "/information" for 127.0.0.1 at 2022-08-25 23:03:05 -0400
+Processing by InformationController#index as HTML
+  [1m[36mInformation Load (1.0ms)[0m  [1m[34mSELECT "information".* FROM "information"[0m
+  ↳ app/controllers/information_controller.rb:8:in `index'
+Completed 200 OK in 15ms (Views: 2.1ms | ActiveRecord: 1.0ms | Allocations: 1994)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-08-25 23:03:05 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started POST "/information/" for 127.0.0.1 at 2022-08-25 23:04:40 -0400
+Processing by InformationController#create as */*
+  Parameters: {"title"=>"Lo mejor de la vida", "image"=>"https://abasto.com/wp-content/uploads/2018/05/24-horas-de-vida.jpg", "description"=>"Lorem impsum", "category"=>"Vida", "information"=>{"title"=>"Lo mejor de la vida", "image"=>"https://abasto.com/wp-content/uploads/2018/05/24-horas-de-vida.jpg", "description"=>"Lorem impsum", "category"=>"Vida"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/information_controller.rb:20:in `create'
+  [1m[36mInformation Create (0.9ms)[0m  [1m[32mINSERT INTO "information" ("title", "image", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Lo mejor de la vida"], ["image", "https://abasto.com/wp-content/uploads/2018/05/24-horas-de-vida.jpg"], ["description", "Lorem impsum"], ["category", "Vida"], ["created_at", "2022-08-26 03:04:40.141869"], ["updated_at", "2022-08-26 03:04:40.141869"]]
+  ↳ app/controllers/information_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/information_controller.rb:20:in `create'
+Completed 201 Created in 82ms (Views: 1.0ms | ActiveRecord: 7.2ms | Allocations: 9291)
+
+
+Started POST "/information/" for 127.0.0.1 at 2022-08-25 23:05:35 -0400
+Processing by InformationController#create as */*
+  Parameters: {"title"=>"Disfrutalo", "image"=>"https://i0.wp.com/www.sergerente.net/wp-content/uploads/2014/08/vida1.jpg?resize=1280%2C640&ssl=1", "description"=>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", "category"=>"Vida", "information"=>{"title"=>"Disfrutalo", "image"=>"https://i0.wp.com/www.sergerente.net/wp-content/uploads/2014/08/vida1.jpg?resize=1280%2C640&ssl=1", "description"=>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.", "category"=>"Vida"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/information_controller.rb:20:in `create'
+  [1m[36mInformation Create (0.3ms)[0m  [1m[32mINSERT INTO "information" ("title", "image", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Disfrutalo"], ["image", "https://i0.wp.com/www.sergerente.net/wp-content/uploads/2014/08/vida1.jpg?resize=1280%2C640&ssl=1"], ["description", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."], ["category", "Vida"], ["created_at", "2022-08-26 03:05:35.697420"], ["updated_at", "2022-08-26 03:05:35.697420"]]
+  ↳ app/controllers/information_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/information_controller.rb:20:in `create'
+Completed 201 Created in 6ms (Views: 1.0ms | ActiveRecord: 1.2ms | Allocations: 2146)
+
+
+Started POST "/information/" for 127.0.0.1 at 2022-08-25 23:06:13 -0400
+Processing by InformationController#create as */*
+  Parameters: {"title"=>"Jugaremos", "image"=>"https://definicion.de/wp-content/uploads/2009/03/futbolistas.jpg", "description"=>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic", "category"=>"Futbol", "information"=>{"title"=>"Jugaremos", "image"=>"https://definicion.de/wp-content/uploads/2009/03/futbolistas.jpg", "description"=>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic", "category"=>"Futbol"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/information_controller.rb:20:in `create'
+  [1m[36mInformation Create (0.3ms)[0m  [1m[32mINSERT INTO "information" ("title", "image", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Jugaremos"], ["image", "https://definicion.de/wp-content/uploads/2009/03/futbolistas.jpg"], ["description", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic"], ["category", "Futbol"], ["created_at", "2022-08-26 03:06:13.840884"], ["updated_at", "2022-08-26 03:06:13.840884"]]
+  ↳ app/controllers/information_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/information_controller.rb:20:in `create'
+Completed 201 Created in 5ms (Views: 0.4ms | ActiveRecord: 1.4ms | Allocations: 2087)
+
+
+Started POST "/information/" for 127.0.0.1 at 2022-08-25 23:06:38 -0400
+Processing by InformationController#create as */*
+  Parameters: {"title"=>"Empiza una vida", "image"=>"https://imagenes.elpais.com/resizer/_TbMK6TwGNfD-0xVj_fZdC4JUkE=/1960x1103/cloudfront-eu-central-1.images.arcpublishing.com/prisa/SU7EFDELFA7VVUEMTQNS26S4HQ.jpg", "description"=>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic", "category"=>"Futbol", "information"=>{"title"=>"Empiza una vida", "image"=>"https://imagenes.elpais.com/resizer/_TbMK6TwGNfD-0xVj_fZdC4JUkE=/1960x1103/cloudfront-eu-central-1.images.arcpublishing.com/prisa/SU7EFDELFA7VVUEMTQNS26S4HQ.jpg", "description"=>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic", "category"=>"Futbol"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/information_controller.rb:20:in `create'
+  [1m[36mInformation Create (0.3ms)[0m  [1m[32mINSERT INTO "information" ("title", "image", "description", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Empiza una vida"], ["image", "https://imagenes.elpais.com/resizer/_TbMK6TwGNfD-0xVj_fZdC4JUkE=/1960x1103/cloudfront-eu-central-1.images.arcpublishing.com/prisa/SU7EFDELFA7VVUEMTQNS26S4HQ.jpg"], ["description", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic"], ["category", "Futbol"], ["created_at", "2022-08-26 03:06:38.290675"], ["updated_at", "2022-08-26 03:06:38.290675"]]
+  ↳ app/controllers/information_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/information_controller.rb:20:in `create'
+Completed 201 Created in 5ms (Views: 0.5ms | ActiveRecord: 1.2ms | Allocations: 2084)
+
+
+Started GET "/information" for 127.0.0.1 at 2022-08-25 23:07:54 -0400
+Processing by InformationController#index as HTML
+  [1m[36mInformation Load (0.4ms)[0m  [1m[34mSELECT "information".* FROM "information"[0m
+  ↳ app/controllers/information_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.4ms | Allocations: 1338)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(575273010109588665)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220826040019)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (18.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "username" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220826040019"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(575273010109588665)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/information" for 127.0.0.1 at 2022-08-28 11:31:43 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by InformationController#index as HTML
+  [1m[36mInformation Load (2.5ms)[0m  [1m[34mSELECT "information".* FROM "information"[0m
+  ↳ app/controllers/information_controller.rb:8:in `index'
+Completed 200 OK in 121ms (Views: 36.0ms | ActiveRecord: 8.8ms | Allocations: 9338)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-08-28 11:31:44 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elop@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elop@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."password" = $1 LIMIT $2[0m  [["password", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elop@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elop@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."password" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
